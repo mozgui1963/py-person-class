@@ -1,13 +1,13 @@
 class Person:
     people = {}
 
-
-    def __init___(self, name: str, age: int):
-        self.name = __name__
+    def __init__(self, name: str, age: int):
+        self.name = name
         self.age = age
         self.wife = None
-        self.husband =  None
+        self.husband = None
         Person.people[name] = self
+
 
 def create_person_list(people_data: list) -> list:
 
@@ -15,7 +15,7 @@ def create_person_list(people_data: list) -> list:
 
     for person in people_data:
         instance = Person.people[person["name"]]
-        spouse_key = "wife" if "wife" in person else "husband"
+        spouse_key = "wife" if "wife" in person else "husband", None
 
         if person[spouse_key]:
             spouse_instance = Person.people[person[spouse_key]]
