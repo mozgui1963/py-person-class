@@ -15,7 +15,7 @@ def create_person_list(people_data: list) -> list:
 
     for person in people_data:
         instance = Person.people[person["name"]]
-        spouse_key = "wife" if "wife" in person else "husband", None
+        spouse_key = "wife" if "wife" in person else "husband", "None"
 
         if person[spouse_key]:
             spouse_instance = Person.people[person[spouse_key]]
