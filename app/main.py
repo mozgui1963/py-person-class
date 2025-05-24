@@ -20,7 +20,14 @@ def create_person_list(people_data: list) -> list:
         people_instances.append(instance)
 
     for person in people_data:
-        instance = person["name"]
+        instance = Person.people[person["name"]]
+        for i in Person.people:
+            if "wife" in i and i["wife"] is not None:
+                Person.people[i["name"]].wife = Person.people[i["wife"]]
+
+            if "husband" in i and i["husband"] is not None:
+                Person.people[i["name"]].husband = Person.people[i["husband"]]
+
         spouse_key = "wife" if "wife" in person else "husband"
         spouse_name = person.get(spouse_key)
 
